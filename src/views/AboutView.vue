@@ -11,6 +11,13 @@
     <p v-for="(task,index) in todo_list" v-bind:key="task">
       {{index}}{{task}}
     </p>
+    <ul>
+        <!-- bind-key是為了在dom上面有id綁定才可以顯示 -->
+        <li v-for="(todo,index) in todos" v-bind:key="index">
+            <label>{{todo.value}}</label>
+            <label >{{todo.done}}</label>
+        </li>
+    </ul>
 </template>
 
 
@@ -22,7 +29,12 @@ export default {
             text:"helloworld",
             num:0,
             todo_list:[],
-            text2:""
+            text2:"",
+            todos:[
+                {value:"關於vue",done:false},
+                {value:"關於vue2",done:true},
+                {value:"關於vue3",done:false}
+            ]
         }
     },
     methods:{
@@ -37,6 +49,6 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang='less'>
+@import'../assets/todos.less';
 </style>
